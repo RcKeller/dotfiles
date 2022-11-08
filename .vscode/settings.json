@@ -1,0 +1,77 @@
+{
+  "typescript.suggest.autoImports": false,
+  "javascript.suggest.autoImports": false,
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "git.mergeEditor": false,
+  // @Drakal added
+  // I'd also consider adjusting line height if icons are cut off on top too or things look super cramped.
+  "terminal.integrated.lineHeight": 1.3,
+  // @ChongTang, @ramonsantos added
+  // @gaochundong said it works like a charm.
+  // "terminal.integrated.fontFamily": "Hack Nerd Font"
+  // @dalekurt added (belows which gives me the the fonts for the terminal and the icons from Nerd Font.)
+  // "terminal.integrated.fontFamily": "'Source Code Pro for Powerline', 'Hack Nerd Font'
+  // @nickhingston , @olivebay added for powerlevel10k
+  // I use powerline10k - which uses https://github.com/romkatv/powerlevel10k/#recommended-meslo-nerd-font-patched-for-powerlevel10k
+  // so this worked for me:
+  // "terminal.integrated.fontFamily": "MesloLGS NF"
+  // @kaustuv added
+  // after the changing the font, still had some issues with the glyph spacing in the integrated terminal - fixed it with
+  // @ar2zee : fixed the problem for me.
+  "terminal.integrated.rendererType": "canvas",
+  "editor.fontSize": 14,
+  "editor.tabSize": 2,
+  "atomKeymap.promptV3Features": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.formatOnPaste": true,
+  "workbench.colorTheme": "Atom One Dark",
+  "redhat.telemetry.enabled": true,
+  // https://vault.shopify.io/pages/2500-VSCode
+  // LINT
+  "ruby.useLanguageServer": false,
+  "eslint.format.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "ruby.format": false,
+  "[ruby]": {
+    "editor.formatOnSave": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "editor.formatOnSaveTimeout": 1500,
+  // RUBOCOP
+  "ruby.lint": {
+    "rubocop": false
+  },
+  "editor.formatOnSave": true,
+  "bracketPairColorizer.depreciation-notice": false,
+  "editor.inlineSuggest.enabled": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "ruby.codeCompletion": false,
+  "ruby.intellisense": false,
+  "byesig.fold": false,
+  "byesig.enabled": true,
+  "byesig.opacity": 0.5,
+  "byesig.showIcon": false,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "editor.rulers": [120],
+  "sorbet.enabled": true,
+  "yaml.schemas": {
+    "file:///Users/dev/.vscode/extensions/docsmsft.docs-yaml-0.2.9/out/yaml-support/toc.schema.json": "/toc\\.yml/i"
+  },
+  "window.zoomLevel": -1,
+  "vscode-pets.petSize": "large",
+  "vscode-pets.petType": "dog",
+  "vscode-pets.petName": "Buddy",
+  "vscode-pets.petColor": "black",
+  "vscode-pets.position": "explorer",
+  "vscode-pets.theme": "none"
+  }
+}
