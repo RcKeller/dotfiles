@@ -43,11 +43,6 @@ antigen apply
 
 source $DF_CORE/utils.zsh
 
-# Load custom dircolors, if present
-if [ -e $DF_USER/dircolors ]; then
-  eval $(dircolors $DF_USER/dircolors)
-fi
-
 source $DF_CORE/filter_history.zsh
 
 source $DF_USER/custom.zsh
