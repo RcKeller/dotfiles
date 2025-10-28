@@ -188,3 +188,62 @@ get_hex ()
 {
   echo $1 | hexdump
 }
+
+# Usage: copy [<file> ...]
+# copies the raw content of files, including a comment at the top with the relative path
+# good for supplying context quickly for a GPT prompt
+copy() {
+  if (( $# == 0 )); then
+    echo "Usage: copy <file|glob> [<file|glob> ...]"
+    return 1
+  fi
+
+  (
+    # Loop over every argument the user provided.
+    for file in "$@"; do
+      # If it's a directory, copy all regular files in that directory
+      if [[ -d "$file" ]]; then
+        for item in "$file"/*; do
+          if [[ -f "$item" ]]; then
+            echo "====="
+            echo "$item"
+            echo "====="
+            cat "$item"
+            echo "====="
+          else
+            echo "# Skipping (not a regular file in directory): $item"
+          fi
+        done
+      # If it's a regular file, copy it
+      elif [[ -f "$file" ]]; then
+        echo "====="
+        echo "$file"
+        echo "====="
+        cat "$file"
+        echo "====="
+      # Otherwise, skip
+      else
+        echo "# Skipping (not a regular file or directory): $file"
+      fi
+    done
+  ) | pbcopy
+
+  echo "Copied file contents to clipboard."
+}
+
+# Usage: copydiff [<branch>]
+# Compares <branch> against main (or the current branch if not specified),
+# as if merging changes into main. Copies that diff to your clipboard.
+copydiff() {
+  # If a branch was passed, use it. Otherwise, use the current branch.
+  local target_branch="$1"
+  if [ -z "$target_branch" ]; then
+    target_branch="$(git rev-parse --abbrev-ref HEAD)"
+  fi
+
+  # Generate the diff of changes that would merge into 'main'
+  # (i.e., what's different in target_branch relative to main).
+  git diff main..."$target_branch" | pbcopy
+
+  echo "Copied diff between 'main' and '$target_branch' to clipboard."
+}
